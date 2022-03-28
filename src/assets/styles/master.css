@@ -1,0 +1,10 @@
+html {
+  height: 100%;
+}
+
+body {
+  max-height: 100%;
+  /* background-color: #2D3A42; */
+  color: #fff;
+  font-family: 'Mulish', Helvetica, sans-serif;
+}
