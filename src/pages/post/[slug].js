@@ -1,8 +1,10 @@
+import Head from "next/head";
+import fs from "fs";
+import matter from "gray-matter";
+
 import { Box } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { _mapProps } from "../../_mapMarkdownProps";
-import fs from "fs";
-import matter from "gray-matter";
 
 export function getStaticPaths() {
   const files = fs.readdirSync("posts");
@@ -28,11 +30,16 @@ export function getStaticProps({ params: { slug } }) {
 
 export const Post = ({ frontmatter, content }) => {
   return (
-    <Box width={["100%", "90%", "80%", "62em"]} margin="auto">
-      <div>
-        <ReactMarkdown {..._mapProps({})} children={content} />
-      </div>
-    </Box>
+    <>
+      <Head>
+        <title>{frontmatter.title}</title>
+      </Head>
+      <Box width={["100%", "90%", "80%", "62em"]} margin="auto">
+        <div>
+          <ReactMarkdown {..._mapProps({})} children={content} />
+        </div>
+      </Box>
+    </>
   );
 };
 

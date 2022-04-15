@@ -1,10 +1,12 @@
-import { Container, Grid, Heading } from "@chakra-ui/react";
-
-import { AnimatePresence } from "framer-motion";
-import { _mapProps } from "../_mapMarkdownProps";
+import Head from "next/head";
+import { useState } from "react";
 import fs from "fs";
 import matter from "gray-matter";
-import { useState } from "react";
+
+import { Container, Grid, Heading } from "@chakra-ui/react";
+import { AnimatePresence } from "framer-motion";
+
+import { _mapProps } from "../_mapMarkdownProps";
 import CardArticle from "../components/CardArticle";
 
 export async function getStaticProps() {
@@ -33,31 +35,36 @@ const Summary = ({ posts }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
-    <Container
-      as="section"
-      maxW="100%"
-      pb={10}
-      centerContent
-      className="summary"
-    >
-      {/* <Heading as="h1" mt="1em" mb="2em">
+    <>
+      <Head>
+        <title>Notas de clase</title>
+      </Head>
+      <Container
+        as="section"
+        maxW="100%"
+        pb={10}
+        centerContent
+        className="summary"
+      >
+        {/* <Heading as="h1" mt="1em" mb="2em">
         Notas / Ejercicios
       </Heading> */}
-      {post.length ? (
-        <Grid templateColumns="repeat(3, 1fr)" gap="2em">
-          <AnimatePresence>
-            {isVisible &&
-              post.map((data, i) => (
-                <CardArticle {...data} key={data.frontmatter.title} />
-              ))}
-          </AnimatePresence>
-        </Grid>
-      ) : (
-        <Heading as="h1" size="md" margin="auto">
-          No hay ninguna nota para mostrar
-        </Heading>
-      )}
-    </Container>
+        {post.length ? (
+          <Grid templateColumns="repeat(3, 1fr)" gap="2em">
+            <AnimatePresence>
+              {isVisible &&
+                post.map((data, i) => (
+                  <CardArticle {...data} key={data.frontmatter.title} />
+                ))}
+            </AnimatePresence>
+          </Grid>
+        ) : (
+          <Heading as="h1" size="md" margin="auto">
+            No hay ninguna nota para mostrar
+          </Heading>
+        )}
+      </Container>
+    </>
   );
 };
 
