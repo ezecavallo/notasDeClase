@@ -46,9 +46,6 @@ const Summary = ({ posts }) => {
         centerContent
         className="summary"
       >
-        {/* <Heading as="h1" mt="1em" mb="2em">
-        Notas / Ejercicios
-      </Heading> */}
         {post.length ? (
           <Grid templateColumns="repeat(3, 1fr)" gap="2em">
             <AnimatePresence>
