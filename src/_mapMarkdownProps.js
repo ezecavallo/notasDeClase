@@ -26,17 +26,52 @@ export const _mapProps = ({}) => ({
   remarkPlugins: [remarkMath],
   rehypePlugins: [rehypeKatex],
   components: {
-    h2: (props) => (
+    h1: (props) => (
       <Heading
         my={3}
-        as="h2"
-        // size={sizes[`${level - 1}`]}
+        as="h1"
+        size="xl"
+        paddingY={".75rem"}
+        borderBottom="1px"
+        borderColor="rgba(255,255,255, 0.5)"
       >
         {props.children}
       </Heading>
     ),
-
-    // h1: "safsdfsadf",
+    h2: (props) => (
+      <Heading
+        my={3}
+        as="h2"
+        size="lg"
+        fontWeight="600"
+        paddingY={".75rem"}
+        borderBottom="1px"
+        borderColor="rgba(255,255,255, 0.5)"
+      >
+        {props.children}
+      </Heading>
+    ),
+    h3: (props) => (
+      <Heading my={3} size="md" as="h3" fontWeight="600">
+        {props.children}
+      </Heading>
+    ),
+    h4: (props) => (
+      <Heading my={3} as="h4" size="sm" fontWeight="600">
+        {props.children}
+      </Heading>
+    ),
+    h5: (props) => (
+      <Heading my={3} as="h5" size="xs" fontWeight="600">
+        {props.children}
+      </Heading>
+    ),
+    h6: (props) => (
+      <Heading my={3} as="h6" size="xs" fontWeight="600">
+        {props.children}
+      </Heading>
+    ),
+    p: ({ children }) => <Text lineHeight="2">{children}</Text>,
     code: ({ children }) => (
       <Code
         bg="#273037"

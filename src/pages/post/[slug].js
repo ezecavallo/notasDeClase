@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { _mapProps } from "../../_mapMarkdownProps";
 import fs from "fs";
@@ -27,7 +28,7 @@ export function getStaticProps({ params: { slug } }) {
 
 export const Post = ({ frontmatter, content }) => {
   return (
-    <Box maxW={"70%"} margin="auto">
+    <Box width={["100%", "90%", "80%", "62em"]} margin="auto">
       <div>
         <ReactMarkdown {..._mapProps({})} children={content} />
       </div>

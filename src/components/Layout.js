@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Container, Button, Heading, ColorModeScript } from "@chakra-ui/react";
+import {
+  Container,
+  Button,
+  Box,
+  Heading,
+  ColorModeScript,
+} from "@chakra-ui/react";
 import { useTheme, useColorMode } from "@chakra-ui/react";
 
 export const Layout = ({ children }) => {
@@ -30,7 +36,7 @@ export const Layout = ({ children }) => {
                 width="40"
                 height="40"
                 fill="currentColor"
-                class="bi bi-arrow-left-short"
+                className="bi bi-arrow-left-short"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -41,17 +47,27 @@ export const Layout = ({ children }) => {
             </Button>
           </Link>
         ) : null}
-        <Link href="">
-          <Heading as="h1" size="lg" my="3">
-            Notas / Ejercicios
-          </Heading>
+        <Link href="/">
+          <a rel="noreferrer">
+            <Heading as="h1" size="lg" my="3">
+              Notas / Ejercicios
+            </Heading>
+          </a>
         </Link>
         <Button onClick={toggleColorMode} position="absolute" right={5}>
           {colorMode === "light" ? "Dark" : "Light"}
         </Button>
       </Container>
-      {children}
-      <footer></footer>
+      <Box paddingBottom="5em">{children}</Box>
+      <Container
+        as="footer"
+        position="absolute"
+        bottom={0}
+        height="3em"
+        marginTop="-3em"
+      >
+        BoxBoxBoxBoxBoxBox
+      </Container>
     </>
   );
 };

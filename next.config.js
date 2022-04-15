@@ -2,7 +2,6 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  assetPrefix: "./",
   webpack: function (config, options) {
     // config.resolve.fallback = { fs: false, path: false };
     config.module.rules.push(
